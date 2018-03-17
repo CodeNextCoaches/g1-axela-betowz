@@ -1,9 +1,9 @@
 (function () {
 
-  var input,
-      submit,
-      message,
-      advancedDiv,
+  var input = document.querySelector("#axela-input"),
+      submit = document.querySelector("#axela-submit"),
+      message = document.querySelector("#axela-message"),
+      advancedDiv = document.querySelector("#advanced"),
       errorText = "I don't understand you.",
       dunnoText = "I wasn't programmed to know that.",
       picture = null,
@@ -48,6 +48,47 @@
       the message element to errorText.
    */
 
+
+   function processInput() {
+     if(advancedDiv.contains(picture)) {
+       picture.removeChild();
+     }
+     var words = input.value.toLowerCase().trim().split(" ");
+     input.value = '';
+
+     if(words.length == 1) {
+       if(greetings.indexOf(words[0]) > -1) {
+         message.innerHTML = 'Greetings!';
+       } else {
+         message.innerHTML = errorText;
+       }
+     } else if (words.length == 2) {
+       switch(words[0]) {
+         case "who":
+           who(words[1]);
+           break;
+         case "what":
+           what(words[1]);
+           break;
+         case "where":
+           where(words[1]);
+           break;
+         case "tell":
+           tell(words[1]);
+           break;
+         case "show":
+           show(words[1]);
+           break;
+         default:
+           message.innerHTML = errorText;
+       }
+     } else {
+       message.innerHTML = errorText;
+     }
+
+
+   }
+
   /*
    * who(word)
    * This function sets the innerHTML of the message element to specific text,
@@ -63,25 +104,92 @@
      doesn't know what they're referring to.)
    */
 
-  /*
+   function who(word) {
+     switch(word) {
+       case 'you':
+         message.innerHTML = 'I am Axela, of course (im Bootleg tho)';
+         break;
+       case 'me':
+         message.innerHTML = 'You are you';
+         break;
+       case 'cool':
+         message.innerHTML = 'Not the Cavs';
+         break;
+         case 'hungry':
+         message.innerHTML = 'You are';
+         break;
+       default:
+         message.innerHTML = dunnoText;
+     }
+   }
+
+   /*
    * what(word)
    * See above.
    */
 
-  /*
+   function what(word) {
+     switch(word) {
+       case 'time':
+       message.innerHTML = '12 somewhere in the world';
+       break;
+       case 'you':
+       message.innerHTML = 'An artificial person';
+       break;
+       case 'life':
+       message.innerHTML = 'A mystery';
+       break;
+       default:
+       message.innerHTML = dunnoText;
+
+     }
+   }
+
+
+   /*
    * where(word)
    * See above.
    */
 
-  /*
+   function where(word){
+     switch (word) {
+       case 'you':
+       message.innerHTML = 'In front of you';
+       break;
+       default:
+       message.innerHTML = dunnoText;
+
+
+     }
+   }
+
+   /*
    * tell(word)
    * See above.
    */
 
-  /*
+   /*
    * show(word)
    * See above.
    */
+   function show(word){
+     switch (word) {
+       case 'dog':
+       message.innerHTML = 'Here is a Dog';
+       picture = document.createElement('img');
+       picture.src = 'img/dog.png';
+       advancedDiv.appendChild(picture);
+       break;
 
+       case 'random':
+       message.innerHTML = 'IDK';
+       picture = document.createElement('img');
+       picture.src = 'img/1wins.png';
+       advancedDiv.appendChild(picture);
+       break;
 
+       default:
+       message.innerHTML = dunnoText;
+     }
+   }
 })();
