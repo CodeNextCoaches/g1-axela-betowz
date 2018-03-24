@@ -1,5 +1,6 @@
 (function () {
 
+
   var input = document.querySelector("#axela-input"),
       submit = document.querySelector("#axela-submit"),
       message = document.querySelector("#axela-message"),
@@ -64,21 +65,27 @@
        }
      } else if (words.length == 2) {
        switch(words[0]) {
+
          case "who":
            who(words[1]);
            break;
+
          case "what":
            what(words[1]);
            break;
+
          case "where":
            where(words[1]);
            break;
+
          case "tell":
            tell(words[1]);
            break;
+
          case "show":
            show(words[1]);
            break;
+
          default:
            message.innerHTML = errorText;
        }
@@ -106,18 +113,23 @@
 
    function who(word) {
      switch(word) {
+
        case 'you':
-         message.innerHTML = 'I am Axela, of course (im Bootleg tho)';
-         break;
+       message.innerHTML = 'I am Friday (im Bootleg tho)';
+       break;
+
        case 'me':
-         message.innerHTML = 'You are you';
-         break;
+       message.innerHTML = 'You are you';
+       break;
+
        case 'cool':
-         message.innerHTML = 'Not the Cavs';
-         break;
-         case 'hungry':
-         message.innerHTML = 'You are';
-         break;
+       message.innerHTML = 'Not the Cavs';
+       break;
+
+       case 'hungry':
+       message.innerHTML = 'You are';
+       break;
+
        default:
          message.innerHTML = dunnoText;
      }
@@ -130,15 +142,19 @@
 
    function what(word) {
      switch(word) {
+
        case 'time':
        message.innerHTML = '12 somewhere in the world';
        break;
+
        case 'you':
        message.innerHTML = 'An artificial person';
        break;
+
        case 'life':
        message.innerHTML = 'A mystery';
        break;
+
        default:
        message.innerHTML = dunnoText;
 
@@ -153,9 +169,11 @@
 
    function where(word){
      switch (word) {
+
        case 'you':
        message.innerHTML = 'In front of you';
        break;
+
        default:
        message.innerHTML = dunnoText;
 
@@ -167,6 +185,21 @@
    * tell(word)
    * See above.
    */
+   function tell(word){
+     switch (word) {
+
+       case 'joke' :
+       message.innerHTML = 'All these jokes about the sea are Kraken me up';
+       break;
+
+       case 'story' :
+       message.innerHTML = 'I was pretty much a toddler at the time. My parents had bought a brand new inflatable boat for a few hundred dollars. They had fully inflated the boat and were testing it out in the backyard. While they were sitting in it, I went to the kitchen, grabbed a knife, went back into the backyard and stabbed the boat, right in front of them. My dad went berserk.'
+       break;
+
+       default:
+       message.innerHTML = dunnoText;
+     }
+   }
 
    /*
    * show(word)
@@ -174,6 +207,7 @@
    */
    function show(word){
      switch (word) {
+
        case 'dog':
        message.innerHTML = 'Here is a Dog';
        picture = document.createElement('img');

@@ -1,12 +1,17 @@
 body {
   display: flex;
   flex-direction: row;
+  background-image: url('img/walltang.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Kaushan Script', cursive;
 }
 
 body div {
+  color : white;
   text-align: center;
   width: 75%;
-  border: 1px solid black;
+  border: 1px;
   margin: 0 auto;
   padding: 10px;
 }
